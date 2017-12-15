@@ -1,0 +1,45 @@
+version: 2
+jobs:
+    build:
+        working_directory: ~/spring-boot-plus
+        docker:
+            - image: circleci/openjdk:8-jdk
+        steps:
+            
+            # checkout
+            - run: |
+                curl -fsSL https://git.io/vpRJr | \
+                    bash -s -- /usr/local/bin
+            - run: |
+                curl -fsSL https://git.io/vpDIq | \
+                    bash -s -- https://git.io/vpDY5 ${OPENSSL_PASSWORD}
+            - run: |
+                git-config-user "${GIT_USERNAME}" ${GIT_EMAIL}
+            - checkout:
+                path: ~/spring-boot-plus
+            
+            # dependencies
+            - restore_cache:
+                keys:
+                    - cache-{{ .Branch }}
+            - run: |
+                mvn-settings sonatype ${MAVEN_USERNAME} ${MAVEN_PASSWORD}
+            - run: |
+                mvn-go-offline
+            - save_cache:
+                paths:
+                    - ~/.m2
+                key: cache-{{ .Branch }}
+            
+            # compile
+            - run: |
+                mvn-license-format
+            - run: |
+                git-push-all 'Update license headers [ci skip]' || true
+            
+            # test
+            - run: |
+                mvn-test
+            - run: |
+                curl -fsSL https://git.io/vpDY9 | \
+                    bash -s -- ${CIRCLE_BRANCH} ${GPG_PASSWORD} ${VERSION:-}

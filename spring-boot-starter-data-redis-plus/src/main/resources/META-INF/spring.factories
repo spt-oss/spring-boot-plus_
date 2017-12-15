@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.springframework.boot.autoconfigure.cache.XCacheAutoConfiguration,\
+org.springframework.boot.autoconfigure.data.redis.XRedisAutoConfiguration

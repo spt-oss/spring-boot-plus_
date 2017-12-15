@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.github.spt-oss</groupId>
+		<artifactId>spt-java-parent</artifactId>
+		<version>2.0.2.0</version>
+	</parent>
+
+	<artifactId>spring-boot-plus</artifactId>
+	<version>2.0.2.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<description>Custom implementation for Spring Boot</description>
+	<url>https://github.com/spt-oss/spring-boot-plus</url>
+	<inceptionYear>2017</inceptionYear>
+
+	<modules>
+		<module>spring-boot-starter-plus</module>
+		<module>spring-boot-starter-data-jpa-plus</module>
+		<module>spring-boot-starter-data-redis-plus</module>
+		<module>spring-boot-starter-json-plus</module>
+		<module>spring-boot-starter-security-plus</module>
+		<module>spring-boot-starter-web-plus</module>
+	</modules>
+
+	<scm>
+		<url>https://github.com/spt-oss/spring-boot-plus/tree/master</url>
+		<connection>scm:git:git@github.com:spt-oss/spring-boot-plus.git</connection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<properties>
+		<spt-java-commons.version>1.8.0.1</spt-java-commons.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://repo.maven.apache.org/maven2</url>
+		</repository>
+		<repository>
+			<id>sonatype</id>
+			<url>https://oss.sonatype.org/content/groups/staging</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<configuration>
+					<configLocation>spt/settings/checkstyle/checkstyle.xml</configLocation>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.github.spt-oss</groupId>
+						<artifactId>spt-java-commons</artifactId>
+						<version>${spt-java-commons.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>gpg</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

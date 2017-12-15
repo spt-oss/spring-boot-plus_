@@ -1,0 +1,26 @@
+---
+
+spring.profiles: test-cache-config-with-mock
+
+spring.cache.redis:
+    mock: true
+    key: false
+
+---
+
+spring.profiles: test-redis-config-with-lettuce
+
+spring.redis:
+    lettuce:
+        pool:
+            minEvictableIdleTime: 30000
+            softMinEvictableIdleTime: 0
+            numTestsPerEvictionRun: 4
+            testOnCreate: true
+            testOnBorrow: true
+            testOnReturn: true
+            testWhileIdle: true
+            timeBetweenEvictionRuns: 0
+            blockWhenExhausted: false
+
+---

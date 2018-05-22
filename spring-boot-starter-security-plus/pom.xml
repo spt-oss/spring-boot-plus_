@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.github.spt-oss</groupId>
 		<artifactId>spring-boot-plus</artifactId>
-		<version>2.0.2.0</version>
+		<version>2.0.2.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
@@ -14,7 +14,7 @@
 	<packaging>jar</packaging>
 
 	<scm>
-		<tag>2.0.2.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<dependencies>

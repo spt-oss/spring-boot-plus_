@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>spring-boot-plus</artifactId>
-	<version>2.0.2.0-SNAPSHOT</version>
+	<version>2.0.2.0</version>
 	<packaging>pom</packaging>
 
 	<description>Custom implementation for Spring Boot</description>
@@ -29,7 +29,7 @@
 	<scm>
 		<url>https://github.com/spt-oss/spring-boot-plus/tree/master</url>
 		<connection>scm:git:git@github.com:spt-oss/spring-boot-plus.git</connection>
-		<tag>HEAD</tag>
+		<tag>2.0.2.0</tag>
 	</scm>
 
 	<properties>

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.springframework.boot.autoconfigure.jdbc.CustomDataSourceAutoConfiguration,\
+org.springframework.boot.autoconfigure.orm.jpa.CustomHibernateJpaAutoConfiguration

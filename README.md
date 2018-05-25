@@ -5,15 +5,41 @@
 [![javadoc](https://img.shields.io/badge/javadoc-spring--boot--plus-blue.svg)](https://www.javadoc.io/doc/com.github.spt-oss/spring-boot-plus)
 
 * Custom implementation for [Spring Boot](https://github.com/spring-projects/spring-boot)
+* **Note: This project is unofficial and experimental.**
 
-## Modules
+## TOC
 
-* [spring-boot-starter-plus](./spring-boot-starter-plus)
-* [spring-boot-starter-data-jpa-plus](./spring-boot-starter-data-jpa-plus)
-* [spring-boot-starter-data-redis-plus](./spring-boot-starter-data-redis-plus)
-* [spring-boot-starter-json-plus](./spring-boot-starter-json-plus)
-* [spring-boot-starter-security-plus](./spring-boot-starter-security-plus)
-* [spring-boot-starter-web-plus](./spring-boot-starter-web-plus)
+* [spring-boot-autoconfigure](#spring-boot-autoconfigure)
+* [spring-boot-starter-data-jpa](#spring-boot-starter-data-jpa)
+* [spring-boot-starter-data-redis](#spring-boot-starter-data-redis)
+* [spring-boot-starter-security](#spring-boot-starter-security)
+* [spring-boot-starter-thmeleaf](#spring-boot-starter-thymeleaf)
+* [spring-boot-starter-web](#spring-boot-starter-web)
+* [License](#license)
+
+## spring-boot-autoconfigure
+
+* TODO
+
+## spring-boot-starter-data-jpa
+
+* TODO
+
+## spring-boot-starter-data-redis
+
+* TODO
+
+## spring-boot-starter-security
+
+* TODO
+
+## spring-boot-starter-thmeleaf
+
+* TODO
+
+## spring-boot-starter-web
+
+* TODO
 
 ## License
 

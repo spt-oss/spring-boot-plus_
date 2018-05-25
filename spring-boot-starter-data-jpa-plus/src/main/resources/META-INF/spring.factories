@@ -1,5 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.springframework.boot.autoconfigure.h2.XH2ServerAutoConfiguration,\
-org.springframework.boot.autoconfigure.jdbc.XDataSourceAutoConfiguration,\
-org.springframework.boot.autoconfigure.flyway.XFlywayAutoConfiguration,\
-org.springframework.boot.autoconfigure.orm.jpa.XHibernateJpaAutoConfiguration

@@ -1,0 +1,56 @@
+---
+
+# TODO ClauDB
+spring.banner:
+    location: /dev/null
+
+---
+
+spring.profiles: test-claudb
+
+spring.claudb:
+    enabled: true
+    port: 45678
+
+---
+
+spring.profiles: test-flyway
+
+spring.datasource:
+    url: jdbc:h2:mem:test;DATABASE_TO_UPPER=FALSE
+
+spring.flyway:
+    enabled: true
+    locations:
+        - classpath:/flyway
+    schemas:
+        - foo
+        - bar
+    sql-migration-prefix: ""
+    sql-migration-separator: "-"
+
+---
+
+spring.profiles: test-h2
+
+spring.h2.server:
+    enabled: true
+    port: 56789
+    base-dir: ./target/work/data
+    allow-others: true
+    daemon: false
+
+spring.datasource:
+    url: jdbc:h2:tcp://localhost:56789/test
+    hikari:
+        connection-test-query: select 1
+
+---
+
+spring.profiles: test-thymeleaf
+
+spring.thymeleaf.minify:
+    enabled: true
+    handler-class: org.springframework.boot.autoconfigure.thymeleaf.CustomThymeleafAutoConfigurationTests.InternalHandler
+
+---

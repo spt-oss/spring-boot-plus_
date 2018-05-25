@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 the original author or authors.
+ * Copyright 2017-2018 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,21 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.flywaydb.core;
 
 import java.lang.reflect.Field;
 import java.util.Collection;
-import java.util.List;
 
-import org.flywaydb.core.api.callback.FlywayCallback;
 import org.flywaydb.core.api.resolver.MigrationResolver;
+import org.flywaydb.core.internal.callback.CallbackExecutor;
 import org.flywaydb.core.internal.database.Database;
+import org.flywaydb.core.internal.database.Schema;
 import org.flywaydb.core.internal.resolver.CompositeMigrationResolver;
 import org.flywaydb.core.internal.resolver.sql.SqlMigrationResolver;
 import org.flywaydb.core.internal.schemahistory.SchemaHistory;
-import org.flywaydb.core.internal.util.PlaceholderReplacer;
 import org.flywaydb.core.internal.util.XSqlReplacer;
+import org.flywaydb.core.internal.util.placeholder.PlaceholderReplacer;
 
 import lombok.Getter;
 import lombok.NonNull;
@@ -72,17 +71,21 @@ public class XFlyway extends Flyway {
 		private final PlaceholderReplacer placeholderReplacer;
 		
 		@Override
-		public T execute(MigrationResolver migrationResolver, SchemaHistory schemaHistory,
+		public T execute(
+		/* @formatter:off */
+			MigrationResolver migrationResolver,
+			SchemaHistory schemaHistory,
 			@SuppressWarnings("rawtypes") Database database,
-			@SuppressWarnings("rawtypes") org.flywaydb.core.internal.database.Schema[] schemas,
-			List<FlywayCallback> effectiveCallbacks) {
+			@SuppressWarnings("rawtypes") Schema[] schemas,
+			CallbackExecutor callbackExecutor) {
+			/* @formatter:on */
 			
 			if (this.placeholderReplacer != null) {
 				
 				this.replacePlaceholderReplacer(migrationResolver, this.placeholderReplacer);
 			}
 			
-			return this.delegate.execute(migrationResolver, schemaHistory, database, schemas, effectiveCallbacks);
+			return this.delegate.execute(migrationResolver, schemaHistory, database, schemas, callbackExecutor);
 		}
 		
 		/**

@@ -23,7 +23,7 @@ import lombok.AllArgsConstructor;
 /**
  * {@link XSqlReplacer} for MySQL-SQL to H2-SQL
  */
-public class XMysqlToH2SqlReplacer extends XSqlReplacer {
+public class XMysqlToH2SqlReplacer implements XSqlReplacer {
 	
 	/**
 	 * $1

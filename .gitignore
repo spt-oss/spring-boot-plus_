@@ -4,5 +4,7 @@
 .settings
 
 target
-
 pom.xml.*
+
+*-my.xml
+*-my.yml

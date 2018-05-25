@@ -1,24 +1,18 @@
 version: 2
+
+settings: &settings
+    working_directory: ~/spring-boot-plus
+    docker:
+        - image: circleci/openjdk:9.0.4-12-jdk-sid
+
 jobs:
     build:
-        working_directory: ~/spring-boot-plus
-        docker:
-            - image: circleci/openjdk:8-jdk
+        <<: *settings
         steps:
-            
-            # checkout
-            - run: |
-                curl -fsSL https://git.io/vpRJr | \
-                    bash -s -- /usr/local/bin
-            - run: |
-                curl -fsSL https://git.io/vpDIq | \
-                    bash -s -- https://git.io/vpDY5 ${OPENSSL_PASSWORD}
-            - run: |
-                git-config-user "${GIT_USERNAME}" ${GIT_EMAIL}
             - checkout:
                 path: ~/spring-boot-plus
-            
-            # dependencies
+            - run: |
+                curl -fsSL https://spt.page.link/ci-install-command-sh | bash -s -- git,mvn
             - restore_cache:
                 keys:
                     - cache-{{ .Branch }}
@@ -30,16 +24,17 @@ jobs:
                 paths:
                     - ~/.m2
                 key: cache-{{ .Branch }}
-            
-            # compile
             - run: |
                 mvn-license-format
             - run: |
+                git-config-user "${GIT_USERNAME}" ${GIT_EMAIL}
+            - run: |
                 git-push-all 'Update license headers [ci skip]' || true
-            
-            # test
             - run: |
                 mvn-test
             - run: |
-                curl -fsSL https://git.io/vpDY9 | \
+                curl -fsSL https://spt.page.link/ci-install-gpg-key-sh | \
+                    bash -s -- https://spt.page.link/oss-parent-pubring-gpg-enc ${OPENSSL_PASSWORD}
+            - run: |
+                curl -fsSL https://spt.page.link/oss-parent-mvn-deploy-sh | \
                     bash -s -- ${CIRCLE_BRANCH} ${GPG_PASSWORD} ${VERSION:-}

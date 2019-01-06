@@ -34,19 +34,12 @@
 
 	<properties>
 		<claudb.version>1.5.0</claudb.version>
-		<commons-pool2.version>2.5.0</commons-pool2.version>
+		<!-- TODO remove -->
+		<flyway.version>5.2.4</flyway.version>
 		<flyway-plus.version>5.2.4.0</flyway-plus.version>
-		<h2.version>1.4.197</h2.version>
-		<hikaricp.version>2.7.9</hikaricp.version>
-		<httpasyncclient.version>4.1.4</httpasyncclient.version>
-		<jedis.version>2.9.0</jedis.version>
-		<mysql.version>5.1.47</mysql.version>
 		<spring-boot.version>2.0.7.RELEASE</spring-boot.version>
 		<spring-boot-plus.version>2.0.7.1-SNAPSHOT</spring-boot-plus.version>
-		<spring-data-redis.version>2.0.12.RELEASE</spring-data-redis.version>
-		<spring-framework.version>5.0.11.RELEASE</spring-framework.version>
 		<spt-checkstyle.version>8.15.0</spt-checkstyle.version>
-		<thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
 		<thymeleaf-extras.version>3.0.11.0</thymeleaf-extras.version>
 	</properties>
 
@@ -57,10 +50,11 @@
 				<artifactId>claudb</artifactId>
 				<version>${claudb.version}</version>
 			</dependency>
+			<!-- TODO remove -->
 			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-pool2</artifactId>
-				<version>${commons-pool2.version}</version>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-core</artifactId>
+				<version>${flyway.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.spt-oss</groupId>
@@ -68,69 +62,11 @@
 				<version>${flyway-plus.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.h2database</groupId>
-				<artifactId>h2</artifactId>
-				<version>${h2.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.zaxxer</groupId>
-				<artifactId>HikariCP</artifactId>
-				<version>${hikaricp.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.httpcomponents</groupId>
-				<artifactId>httpasyncclient</artifactId>
-				<version>${httpasyncclient.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>redis.clients</groupId>
-				<artifactId>jedis</artifactId>
-				<version>${jedis.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<version>${mysql.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-autoconfigure</artifactId>
+				<artifactId>spring-boot-dependencies</artifactId>
 				<version>${spring-boot.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-data-jpa</artifactId>
-				<version>${spring-boot.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-data-redis</artifactId>
-				<version>${spring-boot.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-jetty</artifactId>
-				<version>${spring-boot.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-json</artifactId>
-				<version>${spring-boot.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-test</artifactId>
-				<version>${spring-boot.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-thymeleaf</artifactId>
-				<version>${spring-boot.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-web</artifactId>
-				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>com.github.spt-oss</groupId>
@@ -138,19 +74,24 @@
 				<version>${spring-boot-plus.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-redis</artifactId>
-				<version>${spring-data-redis.version}</version>
+				<groupId>com.github.spt-oss</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>${spring-boot-plus.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-jdbc</artifactId>
-				<version>${spring-framework.version}</version>
+				<groupId>com.github.spt-oss</groupId>
+				<artifactId>spring-boot-starter-data-redis</artifactId>
+				<version>${spring-boot-plus.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.thymeleaf</groupId>
-				<artifactId>thymeleaf-spring5</artifactId>
-				<version>${thymeleaf.version}</version>
+				<groupId>com.github.spt-oss</groupId>
+				<artifactId>spring-boot-starter-thymeleaf</artifactId>
+				<version>${spring-boot-plus.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.spt-oss</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring-boot-plus.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.spt-oss</groupId>

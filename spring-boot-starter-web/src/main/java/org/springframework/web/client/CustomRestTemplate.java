@@ -19,12 +19,25 @@ package org.springframework.web.client;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.NonNull;
 
 /**
  * Custom {@link RestTemplate}
  */
 public class CustomRestTemplate extends RestTemplate implements CustomRestOperations {
+	
+	/**
+	 * Get {@link ObjectMapper}
+	 * 
+	 * @param restTemplate {@link RestTemplate}
+	 * @return {@link ObjectMapper}
+	 */
+	public static ObjectMapper getObjectMapper(RestTemplate restTemplate) {
+		
+		return getMappingJackson2HttpMessageConverter(restTemplate).getObjectMapper();
+	}
 	
 	/**
 	 * Get {@link MappingJackson2HttpMessageConverter}
